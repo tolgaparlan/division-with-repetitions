@@ -1,7 +1,8 @@
 body {
     text-align: center;
-    padding: 30px;
+    padding: 10px 30px 30px 30px;
     font-size: 2em;
+    margin-bottom: 20px;
 }
 
 #result {
@@ -16,4 +17,8 @@ body {
 .repeating-part {
     background-color: #6a9686;
     color: white;
+}
+
+.btn {
+    margin-bottom: 10px;
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="division.js"></script>
+    <script src="clipboard.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,20 +24,25 @@
                 <h2>Divide Two Numbers.</h2>
                 <h4>Repeating part of the result is indicated <span class="repeating-part">like this</span></h4>
             </div>
-
-
             <div class="col-sm-5 col-xs-12">
-                <input type="text" id="numerator">
+                <input type="text" class="form-control" id="numerator">
             </div>
             <div id="divide-symbol" class="col-sm-2 col-xs-12">
                 &divide;
             </div>
             <div class="col-sm-5 col-xs-12">
-                <input type="text" id="denominator">
+                <input type="text" class="form-control" id="denominator">
             </div>
 
             <div id="repetition-length" class="col-xs-12"></div>
-            <div id="result" class="col-xs-12"></div>
+            <div id="result-section" class="col-xs-12" hidden>
+                <div class="col-sm-1 col-xs-12 col-sm-push-11">
+                    <button class="btn" data-clipboard-target="#result">
+                        <i class="fa fa-clipboard" alt="Copy to clipboard"></i>
+                    </button>
+                </div>
+                <div id="result" class="col-sm-11 col-xs-12 col-sm-pull-1"></div>
+            </div>
         </div>
     </div>
 

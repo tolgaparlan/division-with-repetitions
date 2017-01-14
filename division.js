@@ -114,8 +114,9 @@ function display(toDisplay) {
         $("#result").html("= " + toDisplay.beforeDecimal + "." + toDisplay.afterDecimal + "<span class='repeating-part'>" + toDisplay.repeating + "</span>");
         $("#repetition-length").text("Length of Repetition: " + toDisplay.len);
     } else {
-        $("#result").text("= " + toDisplay.beforeDecimal + toDisplay.afterDecimal);
+        $("#result").text("= " + (toDisplay.beforeDecimal + toDisplay.afterDecimal));
         $("#repetition-length").text("No repetition");
+        console.log(toDisplay);
     }
 }
 
@@ -165,9 +166,12 @@ function correctInput() {
 }
 
 window.onload = function () {
+    var clipboard = new Clipboard('.btn');
+
     //evaluate the function as input is given
     $('input').bind("input", function () {
-        if (/[^0-9]/g.test($('#numerator').val()) || /[^1-9]/g.test($('#denominator').val())) { //if something other than a number is given
+        if (/[^0-9]/g.test($('#numerator').val()) || /^0/.test($('#denominator').val()) ||
+            /[^0-9]/g.test($('#denominator').val())) { //if something other than a number is given
             falseInput();
             return;
         } else {
@@ -175,6 +179,7 @@ window.onload = function () {
         }
 
         if ($('#numerator').val() !== "" && $('#denominator').val() !== "") { //if there is input
+            $("#result-section").show();
             changeDivision();
         }
     });
