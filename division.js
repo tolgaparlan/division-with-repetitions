@@ -170,7 +170,7 @@ window.onload = function () {
 
     //evaluate the function as input is given
     $('input').bind("input", function () {
-        if (/[^0-9]/g.test($('#numerator').val()) || /^0/.test($('#denominator').val()) ||
+        if (/[^0-9]/g.test($('#numerator').val()) || /^0$/.test($('#denominator').val()) ||
             /[^0-9]/g.test($('#denominator').val())) { //if something other than a number is given
             falseInput();
             return;
