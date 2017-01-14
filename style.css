@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    padding: 30px;
+    font-size: 2em;
+}
+
+#result {
+    word-wrap: break-word;
+    border: 1px solid black;
+}
+
+#divide-symbol {
+    font-size: 1.5em;
+}
+
+.repeating-part {
+    background-color: #6a9686;
+    color: white;
+}

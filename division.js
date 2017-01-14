@@ -111,16 +111,16 @@ function findRepetition(divided, len) {
 //puts the result to DOM
 function display(toDisplay) {
     if (toDisplay.repeat) { //if repeats, formatting is required
-        $("#result").text(toDisplay.beforeDecimal + "." + toDisplay.afterDecimal + "[" + toDisplay.repeating + "]");
-        $("#repetition-length").text(toDisplay.len);
+        $("#result").html("= " + toDisplay.beforeDecimal + "." + toDisplay.afterDecimal + "<span class='repeating-part'>" + toDisplay.repeating + "</span>");
+        $("#repetition-length").text("Length of Repetition: " + toDisplay.len);
     } else {
-        $("#result").text(toDisplay.beforeDecimal + toDisplay.afterDecimal);
+        $("#result").text("= " + toDisplay.beforeDecimal + toDisplay.afterDecimal);
+        $("#repetition-length").text("No repetition");
     }
 }
 
 //calculate the repeating part
 function repetitionFinder(division) {
-    console.log(division.numerator / division.denominator);
     //calculate the non-decimal part
     calcNonDecimal(division);
 
@@ -153,9 +153,27 @@ function repetitionFinder(division) {
     }
 }
 
+
+function falseInput() {
+    $('#numerator').css("background-color", "red");
+    $('#denominator').css("background-color", "red")
+}
+
+function correctInput() {
+    $('#numerator').css("background-color", "white");
+    $('#denominator').css("background-color", "white")
+}
+
 window.onload = function () {
     //evaluate the function as input is given
     $('input').bind("input", function () {
+        if (/[^0-9]/g.test($('#numerator').val()) || /[^1-9]/g.test($('#denominator').val())) { //if something other than a number is given
+            falseInput();
+            return;
+        } else {
+            correctInput();
+        }
+
         if ($('#numerator').val() !== "" && $('#denominator').val() !== "") { //if there is input
             changeDivision();
         }
