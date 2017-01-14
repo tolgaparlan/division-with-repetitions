@@ -22,3 +22,20 @@ body {
 .btn {
     margin-bottom: 10px;
 }
+
+#header-content {
+    font-size: 80%;
+    position: relative;
+}
+
+#border-div {
+    position: absolute;
+    bottom: 0px;
+    left: 25%;
+    right: 25%;
+    border-bottom: 1px solid black;
+}
+
+#header-content a {
+    color: #772828;
+}
